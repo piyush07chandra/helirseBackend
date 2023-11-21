@@ -10,11 +10,7 @@ const app=express();
 app.use(cors());
 
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/heliverse', 
-    { 
-      useNewUrlParser: true, 
-      useUnifiedTopology: true
-     })}   
+    await mongoose.connect('mongodb://localhost:27017/heliverse')}   
    main()
    const  db=mongoose.connection;
    db.on("error",console.error.bind(console, "connection error"));
