@@ -11,13 +11,11 @@
   "author": "piyush",
   "license": "ISC",
   "dependencies": {
-    "bson": "^5.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",
-    "mongodb": "^4.0.0",
     "mongoose": "^8.0.1",
     "nodemon": "^3.0.1",
     "punycode": "^2.3.1"
