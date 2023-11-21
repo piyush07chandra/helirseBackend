@@ -10,7 +10,7 @@ const app=express();
 app.use(cors());
 
 async function main() {
-    await mongoose.connect('mongodb://.0.0.0:27017/heliverse')}   
+    await mongoose.connect('mongodb://0.0.0.0:27017/heliverse')}   
    main()
    const  db=mongoose.connection;
    db.on("error",console.error.bind(console, "connection error"));
