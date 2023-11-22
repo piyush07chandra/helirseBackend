@@ -30,7 +30,7 @@ async function main() {
     available:"String"
 })
 const User = mongoose.model('User', userSchema);
-const  users = await User.find({}).exec();
+const  users = User.find({}).exec();
  
   app.get('/',(req,res)=>{
     res.send("these are users ",users)
