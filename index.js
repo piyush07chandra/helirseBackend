@@ -2,9 +2,6 @@ const express=require('express')
 const mongoose=require('mongoose')
 const cors=require('cors')
 
-// import express from 'express';
-// import mongoose from 'mongoose';
-// import cors from 'cors'
 
 const app=express();
 app.use(cors());
@@ -30,10 +27,16 @@ async function main() {
     available:"String"
 })
 const User = mongoose.model('User', userSchema);
-const  users = User.find({}).exec();
- 
-  app.get('/',(req,res)=>{
-    res.send("these are users ",users)
+const  users = User.find({})
+
+  app.get('/',async(req,res)=>{
+    try {
+      const users = await User.find({}); // Execute the Mongoose query
+      res.json(users); // Send the actual data retrieved from the database
+    } catch (error) {
+      console.error('Error fetching users:', error);
+      res.status(500).send('Internal Server Error');
+    }
   })
 
 app.listen('3000',()=>{
