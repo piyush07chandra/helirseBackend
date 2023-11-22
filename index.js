@@ -28,14 +28,16 @@ async function main() {
 })
 const User = mongoose.model('User', userSchema);
 
-  app.get('/',async(req,res)=>{
-    try {
-      const users = await User.find();
-      res.json(users);
-    } catch (error) {
-      console.error('Error fetching users:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
+  app.get('/',(req,res)=>{
+    User.find().then(
+      (users) => {
+        res.json(users);
+      },
+      (error) => {
+        console.error('Error fetching users:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
+    );
   })
 
 app.listen('3000',()=>{
